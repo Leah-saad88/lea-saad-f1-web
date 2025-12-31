@@ -1,0 +1,23 @@
+.foufi{
+    text-align: center;
+    padding: 10px;
+     background-color: rgb(6, 6, 6);
+    color: rgb(255, 252, 252);
+    font-family: 'Arial Narrow Bold';
+   
+   
+}
+@media (max-width: 768px) {
+  .foufi p {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .foufi p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}

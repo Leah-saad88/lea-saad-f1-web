@@ -1,0 +1,53 @@
+.groupy {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 21px;
+}
+.groupy {
+  background-color: #0A0A0A; 
+  color: #fff;
+}
+.groupy a {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 8px;
+   transition: all 0.3s ease;
+}
+.groupy a:hover {
+ color: #E10600;
+  border-radius: 3px;
+  box-shadow: 0 0 8px #E10600;
+}
+.links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  color: red;
+}
+
+.cutey {
+  display: flex;
+}
+.title{
+  margin-left: 11px;
+  margin-top: 15px;
+  color: azure;
+}
+@media (max-width: 768px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}

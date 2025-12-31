@@ -56,6 +56,7 @@ import d from "./d.jpeg";
 import e from "./e.webp";
 import f from "./f.jpeg";
 import leahandritadesign from "./leahandritadesign.jpg";
+import F11 from "./F11.jfif";
 
 
 export const Assets = {
@@ -117,4 +118,5 @@ export const Assets = {
   e,
   f,
   leahandritadesign,
+  F11 ,
 };

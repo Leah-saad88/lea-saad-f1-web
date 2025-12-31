@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// DB connection (use Railway environment variables)
+// DB connection (works locally OR on Railway)
 const db = mysql.createConnection({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
@@ -23,6 +23,7 @@ db.connect(err => {
   console.log('Connected to database');
 });
 
+// 1️⃣ Signup
 app.post('/signup', (req, res) => {
   const { name, email, password } = req.body;
   const query = 'INSERT INTO user (name, email, password) VALUES (?, ?, ?)';
@@ -35,7 +36,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-
+// 2️⃣ Login
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
   const query = 'SELECT id, name, email FROM user WHERE email = ? AND password = ?';
@@ -51,7 +52,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-
+// 3️⃣ Create Order
 app.post('/order', (req, res) => {
   const { user_id, item_name, item_image, address, quantity } = req.body;
 

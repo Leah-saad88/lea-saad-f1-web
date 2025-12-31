@@ -6,12 +6,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// DB connection
+// DB connection (use Railway environment variables)
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'f1_merch'
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'f1_merch',
+  port: process.env.DB_PORT || 3306
 });
 
 db.connect(err => {
@@ -22,7 +23,6 @@ db.connect(err => {
   console.log('Connected to database');
 });
 
-// 1️⃣ Signup
 app.post('/signup', (req, res) => {
   const { name, email, password } = req.body;
   const query = 'INSERT INTO user (name, email, password) VALUES (?, ?, ?)';
@@ -35,7 +35,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-// 2️⃣ Login
+
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
   const query = 'SELECT id, name, email FROM user WHERE email = ? AND password = ?';
@@ -51,7 +51,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-// 3️⃣ Create Order
+
 app.post('/order', (req, res) => {
   const { user_id, item_name, item_image, address, quantity } = req.body;
 
@@ -72,6 +72,8 @@ app.post('/order', (req, res) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
+// ✅ Use Railway's dynamic port
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

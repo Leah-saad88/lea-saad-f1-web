@@ -6,13 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// DB connection (works locally OR on Railway)
+// DB connection
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'f1_merch',
-  port: process.env.DB_PORT || 3306
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'f1_merch'
 });
 
 db.connect(err => {
@@ -73,8 +72,6 @@ app.post('/order', (req, res) => {
   });
 });
 
-// ✅ Use Railway's dynamic port
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(5000, () => {
+  console.log('Server running on port 5000');
 });

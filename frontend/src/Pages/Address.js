@@ -9,21 +9,20 @@ const Address = () => {
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const user = JSON.parse(localStorage.getItem("user"));
-  const user_id = user?.id;   // ✅ read user_id from localStorage
-
+  const user_id = user?.id;  
   const handlePlaceOrder = async () => {
     if (!address) return alert("Please enter your address");
     if (!cartItems.length) return alert("Cart is empty");
     if (!user_id) return alert("User not logged in");
 
     try {
-      // Loop through cart items and send each one
+      
       for (let item of cartItems) {
-        const res = await fetch("http://localhost:5000/order", {
+        const res = await fetch("https://lea-saad-f1-web.onrender.com", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            user_id,                // ✅ logged-in user ID
+            user_id,                
             item_name: item.name,
             item_image: item.img,
             quantity: item.quantity,

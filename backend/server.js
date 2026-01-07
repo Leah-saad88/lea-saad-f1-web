@@ -19,7 +19,7 @@ const db = mysql.createPool({
 
 console.log("Connection Succesfull");
 
-// 1️⃣ Signup
+
 app.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
   const query = "INSERT INTO user (name, email, password) VALUES (?, ?, ?)";

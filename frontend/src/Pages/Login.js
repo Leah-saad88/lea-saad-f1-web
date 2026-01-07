@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", form);
+      const res = await axios.post("https://lea-saad-f1-web.onrender.com", form);
       const user = res.data.user;
       if (!user?.id) return alert("Login failed: user ID missing");
 

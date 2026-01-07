@@ -22,7 +22,7 @@ export default function App() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://lea-saad-f1-web.onrender.com", form);
+      const res = await axios.post("https://lea-saad-f1-web.onrender.com/signup", form);
 
       setNotification(res.data.message || "✅ Account created successfully!");
       setForm({ name: "", email: "", password: "" });

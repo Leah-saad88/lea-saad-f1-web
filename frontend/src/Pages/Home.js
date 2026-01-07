@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { Assets } from "../Assets/assets";
 import "../Assets/main.css";
 
-// ✅ Toastify imports
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,77 +1,84 @@
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql2");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 // DB connection
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'f1_merch'
+const db = mysql.createPool({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
 });
 
-db.connect(err => {
-  if (err) {
-    console.error('DB connection failed:', err);
-    return;
-  }
-  console.log('Connected to database');
-});
+console.log("Connection Succesfull");
 
 // 1️⃣ Signup
-app.post('/signup', (req, res) => {
+app.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
-  const query = 'INSERT INTO user (name, email, password) VALUES (?, ?, ?)';
+  const query = "INSERT INTO user (name, email, password) VALUES (?, ?, ?)";
   db.query(query, [name, email, password], (err) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ message: 'Signup failed. Email may already exist.' });
+      return res
+        .status(500)
+        .json({ message: "Signup failed. Email may already exist." });
     }
-    res.json({ message: 'User registered successfully' });
+    res.json({ message: "User registered successfully" });
   });
 });
 
 // 2️⃣ Login
-app.post('/login', (req, res) => {
+app.post("/login", (req, res) => {
   const { email, password } = req.body;
-  const query = 'SELECT id, name, email FROM user WHERE email = ? AND password = ?';
+  const query =
+    "SELECT id, name, email FROM user WHERE email = ? AND password = ?";
   db.query(query, [email, password], (err, results) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ message: 'Login error' });
+      return res.status(500).json({ message: "Login error" });
     }
     if (results.length === 0) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+      return res.status(401).json({ message: "Invalid email or password" });
     }
-    res.json({ message: 'Login successful', user: results[0] });
+    res.json({ message: "Login successful", user: results[0] });
   });
 });
 
 // 3️⃣ Create Order
-app.post('/order', (req, res) => {
+app.post("/order", (req, res) => {
   const { user_id, item_name, item_image, address, quantity } = req.body;
 
   if (!user_id || !item_name || !item_image || !address || !quantity) {
-    return res.status(400).json({ message: 'All fields are required' });
+    return res.status(400).json({ message: "All fields are required" });
   }
 
   const query = `
     INSERT INTO orders (user_id, item_name, item_image, address, quantity)
     VALUES (?, ?, ?, ?, ?)
   `;
-  db.query(query, [user_id, item_name, item_image, address, quantity], (err) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ message: 'Failed to save order' });
+  db.query(
+    query,
+    [user_id, item_name, item_image, address, quantity],
+    (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Failed to save order" });
+      }
+      res.json({
+        message:
+          "Order placed successfully! Your shipment will arrive in 3 days.",
+      });
     }
-    res.json({ message: 'Order placed successfully! Your shipment will arrive in 3 days.' });
-  });
+  );
 });
 
 app.listen(5000, () => {
-  console.log('Server running on port 5000');
+  console.log("Server running on port 5000");
 });

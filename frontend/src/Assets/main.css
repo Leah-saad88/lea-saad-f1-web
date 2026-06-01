@@ -1,3 +1,42 @@
+/* ================= GLOBAL ================= */
+
+body {
+  background: white;
+  padding: 0.5%;
+  padding-top: 70px;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+
+/* ================= HERO IMAGE ================= */
+
+.homeimg {
+  width: 100%;
+  max-height: 79vh;
+  object-fit: cover;
+  margin-top: 1%;
+  border-radius: 21px;
+}
+
+
+/* ================= INTRO TEXT ================= */
+
+.text {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 15px 25px;
+  border: 2px dashed #ef1f1f;
+  border-radius: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #0c0101;
+}
+
+
+/* ================= VOTING CARDS ================= */
+
 .card-container {
   display: flex;
   gap: 1.5rem;
@@ -6,19 +45,17 @@
   margin-top: 2rem;
   margin-bottom: 50px;
 }
-.body{
-  align-content: center;
-}
+
 .card {
-  background-color: #1a1a1a;
-  color: white;
+  background-color: #1a1a1a !important;
   width: 200px;
   padding: 0.75rem;
   border-radius: 10px;
-  box-shadow: 0 6px 11px rgba(99, 0, 0, 0.902);
+  box-shadow: 0 6px 11px rgba(99, 0, 0, 0.9) !important;
   text-align: center;
   transition: transform 0.2s ease;
   margin-top: 55px;
+  color: white ;
 }
 
 .card:hover {
@@ -30,7 +67,7 @@
   height: 160px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .card h5 {
@@ -44,40 +81,33 @@
   margin-bottom: 10px;
 }
 
-.holdqueen {
-  display: flex;
-  margin-top: 30px;
-  justify-content: space-evenly;
-  gap: 20px;
-}
-.text {
-  margin-top: 50px;
-  color: #ce0f0f;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 28px;
-  text-align: center;
-}
-
-
-body {
-  background: white;
-  padding: 0.5%;
-}
 .vote-button {
   background-color: #a00909;
   color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
 }
+
 .vote-button:hover {
   background-color: #120101;
 }
+
+
+/* ================= CAROUSEL ================= */
+
 .carousel .imgy {
-  width: 1111px;
+  width: 100%;
+  max-width: 1111px;
   height: 433px;
   object-fit: cover;
   display: block;
   margin: 21px auto;
   border-radius: 5px;
 }
+
+
+/* ================= TABLE ================= */
 
 .table {
   width: 100%;
@@ -96,47 +126,130 @@ body {
   vertical-align: middle;
 }
 
-.table :hover {
-  box-shadow: 0 4px 8px rgba(160, 9, 9, 0.902);
-  transform: scale(1.01);
+.table-dark {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 11px rgba(99, 0, 0, 0.9);
 }
 
-.standings {
-  margin-top: 2%;
-}
-.cartbutton {
-  background-color: #a00909;
-  color: aliceblue;
-}
-
-.cartbutton :hover {
-  color: #f13838;
-}
-.homeimg {
-  width: 100%;
-  max-height: 79vh;
-  object-fit: cover;
-  margin-top: 1%;
-  border-radius: 21px;
-}
-.visually-hidden{
-  color: #120101;
-}
-.standings-container{
-  margin-bottom: 3%;
-  margin-top: 3%;
+.table-dark thead {
+  background: linear-gradient(90deg, #ff6f61, #ffcc00);
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {  
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transition: 0.3s;
+}
+
+.driver-img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.driver-img:hover {
+  transform: scale(1.1);
+}
+
+
+/* ================= CLEAN SMALLER CALENDAR ================= */
+
+.calendar-wrapper {
+  max-width: 650px;      /* smaller than before */
+  margin: 50px auto;
+  padding: 15px;
+  background: #111;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(180, 0, 0, 0.6);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.month-title {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-btn {
+  background: linear-gradient(145deg, #b30000, #ff1a1a);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.nav-btn:hover {
+  background: black;
+  transform: scale(1.05);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day-name {
+  text-align: center;
+  font-weight: bold;
+  color: #ffcc00;
+  font-size: 0.75rem;
+}
+
+.calendar-cell {
+  min-height: 65px;   /* reduced from 90px */
+  background: #1c1c1c;
+  color: white;
+  border-radius: 8px;
+  padding: 4px;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.calendar-cell:hover {
+  transform: scale(1.05);
+}
+
+.race-weekend {
+  background: linear-gradient(145deg, #600000, #ff0000);
+  cursor: pointer;
+}
+
+.race-label {
+  font-size: 0.55rem;
+  margin-top: 4px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
   .homeimg {
     width: 100%;
     height: auto;
   }
 
   .text {
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 0 10px;
+    font-size: 0.95rem;
+    padding: 10px;
   }
 
   .vote-button {
@@ -148,53 +261,682 @@ body {
     max-height: 250px;
     object-fit: cover;
   }
+
+  .calendar-wrapper {
+    max-width: 95%;
+  }
+}
+.driver-img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.driver-img:hover {
+  transform: scale(1.1);
+}
+
+.card-driver {
+  background: #1e1e2f;
+  color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+}
+
+.vs-badge {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.progress-bar-points {
+  background-color: #4dabf7;
+}
+
+.progress-bar-wins {
+  background-color: #ffd43b;
+}
+
+.progress-bar-podiums {
+  background-color: #adb5bd;
+}
+
+.progress-bar-championships {
+  background-color: #ff6b6b;
+}
+
+.top-driver-card {
+  background: linear-gradient(135deg, #ff4d4f, #ff8787);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+}
+.f1-table tbody tr:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transition: 0.3s;
+}
+
+.driver-img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.driver-img:hover {
+  transform: scale(1.1);
+}
+
+.card-driver {
+  background: #1e1e2f;
+  color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+}
+
+.vs-badge {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.progress-bar-points { background-color: #4dabf7; }
+.progress-bar-wins { background-color: #ffd43b; }
+.progress-bar-podiums { background-color: #adb5bd; }
+.progress-bar-championships { background-color: #ff6b6b; }
+
+
+/* ===================== AI Chat Widget ===================== */
+.ai-chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Roboto', sans-serif;
+}
+
+.chat-toggle {
+  background-color: #111;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.05);
+  background-color: #222;
+}
+
+.chat-window {
+  width: 300px;
+  height: 400px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #111;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.chat-body p {
+  margin: 5px 0;
+}
+
+.chat-input {
+  border-top: 1px solid #333;
+  padding: 5px 10px;
+}
+
+.chat-input input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #222;
+  color: #fff;
+}
+
+.chat-input input::placeholder {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+/* ===================== */
+/* 2025 Race Winners - Connected Title Style */
+/* ===================== */
+
+.race2025 {
+  margin: 20px auto;
+  max-width: 900px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* Title with connecting line */
+.race2025 h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #222;
+  margin-bottom: 15px;
+  text-align: left;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Decorative line connecting to cards */
+.race2025 h2::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #007BFF; /* accent color */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+}
+
+/* List container */
+.race-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* Each race card */
+.race-item {
+  background: #f9f9f9;
+  border-left: 4px solid #007BFF;
+  border-radius: 8px;
+  padding: 16px 20px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.race-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Header: GP name + date */
+.race-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.race-header h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #007BFF;
+}
+
+.race-header small {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Winner & Team */
+.race-winner {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.race-winner strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Circuit name */
+.race-circuit {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .race2025 h2 {
+    font-size: 1.5rem;
+  }
+  .race-header h5 {
+    font-size: 1rem;
+  }
+  .race-winner {
+    font-size: 0.85rem;
+  }
+  .race-circuit {
+    font-size: 0.75rem;
+  }
+}
+
+.points-box {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.points-label {
+  font-size: 12px;
+  color: #aaa;
+  display: block;
+}
+
+.points-bar {
+  height: 8px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5px 0;
+}
+
+.points-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000, #ff4d4d);
+  border-radius: 10px;
+  transition: width 0.8s ease-in-out;
+}
+
+.points-value {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+.compare-animation {
+  animation: fadeSlideIn 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-driver {
+  width: 250px;
+  padding: 15px;
+  background: #111;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.winner-card {
+  border: 2px solid gold;
+  box-shadow: 0 0 20px gold;
+}
+
+.vs-badge {
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+.stat-box {
+  margin: 8px 0;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #aaa;
+  display: block;
+}
+
+.stat-bar {
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s ease-in-out;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+}
+.card-driver {
+  width: 260px;
+  padding: 15px;
+  background: #111;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.winner-card {
+  border: 2px solid gold;
+  box-shadow: 0 0 20px gold;
+}
+
+.vs-badge {
+  font-size: 28px;
+  font-weight: bold;
+  color: red;
+  align-self: center;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+.stat-box {
+  margin: 8px 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.stat-bar {
+  height: 8px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+.stat-fill {
+  height: 100%;
+  transition: width 0.8s ease-in-out;
+}
+
+.stat-value {
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}
+
+/* --- CHECKOUT SPECIFIC INDUSTRIAL STYLES --- */
+.checkout-portal .industrial-secure {
+  max-width: 600px;
+  animation: modalSlide 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.step-desc {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* PAYMENT SELECTION GRID */
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.payment-card {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  padding: 20px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.payment-card span { font-size: 24px; display: block; margin-bottom: 10px; }
+.payment-card strong { font-size: 10px; text-transform: uppercase; color: #888; }
+
+.payment-card:hover { border-color: #444; }
+.payment-card.active {
+  border-color: #e10600;
+  background: rgba(225, 6, 0, 0.05);
+}
+.payment-card.active strong { color: #fff; }
+
+.payment-info-box {
+  background: #111;
+  padding: 20px;
+  border-left: 3px solid #ffb400;
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* PROCESSING ANIMATION */
+.checkout-loading {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.loader-ring {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #111;
+  border-top: 3px solid #e10600;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.checkout-success {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.success-icon { font-size: 60px; margin-bottom: 20px; }
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+
+body {
+  background-color: #0a0a0c;
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  border-left: 5px solid #e10600;
+  padding-left: 15px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* Hero Styles */
+.hero-container {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4) contrast(1.2);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.glitch-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 2px 2px #e10600;
+}
+
+/* Racer Grid & Cards */
+.racer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.racer-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 0 20px 0 20px;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.racer-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--accent);
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.racer-img-wrapper img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(1);
+  transition: 0.5s;
+}
+
+.racer-card:hover img {
+  filter: grayscale(0);
+}
+
+.gaming-btn {
+  background: #e10600;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  transition: 0.3s;
+}
+
+.gaming-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* HUD Style Table */
+.hud-table {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+  border: 1px solid #333;
 }
 
 .table-dark {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 11px rgba(99, 0, 0, 0.902);
+  --bs-table-bg: transparent;
 }
-.table-dark thead {
-  background: linear-gradient(90deg, #ff6f61, #ffcc00);
-  color: #000;
+
+/* Calendar HUD */
+.calendar-grid-hud {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  background: #141416;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.day-cell {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
+  position: relative;
+}
+
+.race-active {
+  background: rgba(225, 6, 0, 0.2);
+  border-color: #e10600;
+  color: #e10600;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
+/* AI Widget */
+.ai-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  z-index: 1000;
+}
 
-.text {
-  font-size: 1rem;
+.chat-tab {
+  background: #e10600;
+  padding: 10px;
   text-align: center;
-  padding: 10px 20px;
-  border: 2px dashed #ad0000;
-  border-radius: 10px;
-  display: inline-block;
-  font-weight: bold;
-  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 5px;
 }
 
-.text {
-    font-family: "Playfair Display", Georgia, serif;
+.chat-inner {
+  background: #1a1a1d;
+  height: 300px;
+  border: 1px solid #e10600;
+  display: flex;
+  flex-direction: column;
+}
 
-  margin-top: 50px;
-  color: #0c0101;
-  font-size: 21px;
-  text-align: center;      /* centers text horizontally */
-  display: block;          /* ensures it spans full width */
-  padding: 10px 20px;
-  border: 2px dashed #ef1f1f;
-  border-radius: 10px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-left: auto;      
-  margin-right: auto;
-}
-.text {
-  max-width: 800px;
-  margin: 50px auto;   
-}
-body {
-  padding-top: 70px;
-}
+.chat-log { flex: 1; padding: 10px; font-size: 0.8rem; }
+.chat-input-field { background: #000; border: none; color: #0f0; padding: 10px; outline: none; }

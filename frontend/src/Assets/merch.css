@@ -21,6 +21,1147 @@
   to { opacity: 1; transform: translateX(0); }
 }
 .merch-card :hover{
-  background-color: black;
+  background-color: rgb(175, 20, 20);
 }
 
+.custom-upload-container {
+  background: linear-gradient(135deg, #111, #1c1c1c);
+  border: 2px solid #e10600;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem;
+  color: white;
+}
+
+.custom-upload-container h2 {
+  color: #e10600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.upload-box {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-area {
+  width: 260px;
+  height: 260px;
+  border: 2px dashed #444;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #222;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.upload-area:hover {
+  border-color: #e10600;
+  background: #2a2a2a;
+}
+
+.upload-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-placeholder {
+  text-align: center;
+  color: #aaa;
+}
+
+.upload-placeholder span {
+  font-size: 3rem;
+}
+
+.material-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 250px;
+}
+
+.material-section select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+.total-price {
+  font-size: 1.2rem;
+}
+
+.custom-add-btn {
+  background: #e10600;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.custom-add-btn:hover {
+  background: #ff1a1a;
+}
+
+/* ================= TICKETS LIST STYLE ================= */
+
+/* --- PITLANE GLOBAL --- */
+.pitlane-page {
+  padding: 60px 20px;
+  background: radial-gradient(circle at top right, #1a1a2e, #0b0b0b);
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif; /* Recommended F1-style font */
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- TICKET ROW DESIGN --- */
+.ticket-row-wrapper {
+  margin-bottom: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  background: rgba(25, 25, 35, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ticket-row:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(225, 6, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.ticket-image {
+  width: 300px;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.ticket-row:hover .ticket-image img {
+  transform: scale(1.1);
+}
+
+/* Hover Button on Image */
+.map-overlay-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%) scale(0.9);
+  background: rgba(225, 6, 0, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+.ticket-row:hover .map-overlay-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.ticket-info {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.event-date {
+  color: #e10600;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ticket-info h3 {
+  font-size: 24px;
+  margin: 5px 0;
+  font-weight: 700;
+}
+
+.circuit-name {
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* --- THE SMART SCROLL PANEL --- */
+.hover-panel {
+  position: absolute;
+  right: -100%; /* Start off-screen */
+  top: 0;
+  width: 360px; /* Slightly wider for better text spacing */
+  height: 100%;
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.98), rgba(10, 10, 15, 0.98));
+  backdrop-filter: blur(25px);
+  padding: 20px;
+  z-index: 10;
+  
+  /* FLEXBOX MAGIC */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 3px solid #e10600;
+  box-shadow: -15px 0 35px rgba(0, 0, 0, 0.7);
+}
+
+.ticket-row:hover .hover-panel {
+  right: 0;
+}
+
+.hover-panel h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #e10600;
+  margin-bottom: 15px;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+
+/* --- THE SCROLLABLE CONTAINER --- */
+/* This is the secret: it allows the tiers to scroll if they are too tall for the box */
+.tiers-list-container {
+  flex: 1; /* Takes up remaining space */
+  overflow-y: auto; /* Adds a scrollbar only when needed */
+  padding-right: 10px; /* Space for the scrollbar */
+}
+
+/* Styling the scrollbar to look professional (F1 Red) */
+.tiers-list-container::-webkit-scrollbar {
+  width: 4px;
+}
+.tiers-list-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+.tiers-list-container::-webkit-scrollbar-thumb {
+  background: #e10600;
+  border-radius: 10px;
+}
+
+.tier-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px; /* Reduced padding so they fit better */
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.tier-text strong {
+  font-size: 0.95rem; /* Slightly smaller to prevent text wrapping */
+  display: block;
+}
+
+.tier-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+/* --- THE "SPEED" BUTTON DESIGN --- */
+.tier-buy-btn {
+  background: #e10600;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px; /* Sharper corners look more "racing" */
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic; /* F1 Typography often leans forward */
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adding a "Sheen" effect to the button */
+.tier-buy-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: all 0.5s ease;
+}
+
+.tier-buy-btn:hover::after {
+  left: 120%;
+}
+
+.tier-buy-btn:hover {
+  background: #ff1e00;
+  transform: scale(1.08) skewX(-5deg); /* Leans into the "speed" look */
+  box-shadow: 0 5px 20px rgba(225, 6, 0, 0.5);
+}
+
+.tier-buy-btn:active {
+  transform: scale(0.95);
+}
+
+/* --- TEXT STYLING INSIDE TIER --- */
+.tier-text strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.tier-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e10600; /* Price in F1 Red */
+  font-weight: 700;
+}
+
+
+/* --- CENTERED & SLIM MODAL --- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers vertically */
+  z-index: 3000;
+}
+
+.seat-modal {
+  background: #111116;
+  padding: 30px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 500px; /* Smaller, more focused width */
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+  
+  /* ANIMATION: Pops in from the center */
+  animation: modalPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- UPDATED PROFESSIONAL LEGEND --- */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.box {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+/* Color Meanings */
+.box.green { background: #2ecc71; box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); }
+.box.red { background: #e74c3c; box-shadow: 0 0 10px rgba(231, 76, 60, 0.4); }
+.box.blue { background: #3498db; box-shadow: 0 0 10px rgba(52, 152, 219, 0.4); }
+
+.leg-text { color: #888; }
+.leg-item strong { color: #fff; }
+
+/* --- SEATING GRID ADJUSTMENT --- */
+.seating-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.seat {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seat.available { background: #2ecc71; color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+.seat.occupied { background: #e74c3c; color: rgba(255,255,255,0.3); cursor: not-allowed; }
+.seat.selected { 
+  background: #3498db !important; 
+  transform: scale(1.15); 
+  box-shadow: 0 0 20px #3498db;
+  border: 2px solid #fff;
+}
+.resell-nav-btn {
+  background: transparent;
+  border: 1px solid #e10600;
+  color: #e10600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.resell-nav-btn:hover {
+  background: #e10600;
+  color: white;
+  box-shadow: 0 0 15px rgba(225, 6, 0, 0.4);
+}
+
+/* --- CURRENCY & TOGGLE NEATNESS --- */
+.shop-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.currency-picker {
+  background: #000;
+  padding: 5px;
+  border-radius: 40px;
+  border: 1px solid #333;
+  display: flex;
+}
+
+.currency-picker button {
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.currency-picker button.active {
+  background: #e10600;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.4);
+}
+
+.resell-nav-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 4px;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  transition: 0.3s;
+}
+
+.resell-nav-btn:hover {
+  background: #e10600;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* --- THE RESALE FORM PORTAL --- */
+.resale-container.authenticated {
+  background: radial-gradient(circle at center, #1a1a1a, #050505);
+  border: 1px solid #333;
+  padding: 60px;
+  border-radius: 0;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.security-badge {
+  background: #e10600;
+  color: #fff;
+  padding: 6px 20px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto 30px;
+}
+
+.resale-form {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px;
+}
+
+.input-group label {
+  color: #e10600;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.resale-inputs input {
+  background: #111;
+  border: 1px solid #222;
+  color: #fff;
+  padding: 15px;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+}
+
+.resale-inputs input:focus {
+  border-color: #e10600;
+  outline: none;
+}
+
+/* --- SIGNATURE PAD --- */
+.signature-pad-wrapper {
+  background: #000;
+  border: 1px solid #333;
+  position: relative;
+  margin: 15px 0;
+}
+
+.signature-canvas {
+  cursor: crosshair;
+}
+
+.clear-sig {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: rgba(255,255,255,0.05);
+  border: none;
+  color: #e10600;
+  font-size: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.resale-btn {
+  height: 65px;
+  width: 100%;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border: none;
+  background: #fff;
+  color: #000;
+  transition: 0.4s;
+}
+
+.resale-btn.verifying { background: #ffb400; color: #000; }
+.resale-btn.success { background: #28a745; color: #fff; }
+.resale-btn.rejected { background: #333; color: #888; }
+
+/* --- INDUSTRIAL RESALE PORTAL WRAPPER --- */
+.resale-portal-wrapper {
+  background: #050505;
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* --- THE MAIN CONTAINER --- */
+.resale-container.industrial-secure {
+  background: #000;
+  border: 1px solid #222;
+  padding: 50px;
+  width: 100%;
+  max-width: 1100px;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+}
+
+/* --- SECURITY METADATA HEADER --- */
+.auth-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.security-tag {
+  color: #e10600;
+  font-weight: 900;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.protocol-id {
+  color: #666;
+}
+
+.resale-header-top {
+  border-bottom: 2px solid #e10600;
+  padding-bottom: 25px;
+  margin-bottom: 45px;
+}
+
+.resale-header-top h2 {
+  font-size: 34px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.resale-header-top p {
+  color: #777;
+  font-size: 13px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- FORM GRID LAYOUT --- */
+.industrial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 50px;
+}
+
+/* --- TELEMETRY SCANNER (IMAGE UPLOAD) --- */
+.industrial-upload-box {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: crosshair;
+  transition: border 0.3s ease;
+}
+
+.industrial-upload-box:hover {
+  border-color: #333;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #e10600;
+  box-shadow: 0 0 20px #e10600;
+  z-index: 10;
+  animation: scanning 3s infinite linear;
+}
+
+@keyframes scanning {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.verified-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verified-preview img {
+  max-width: 90%;
+  max-height: 90%;
+  filter: grayscale(0.5) contrast(1.2);
+}
+
+.tech-icon {
+  border: 1px solid #e10600;
+  color: #e10600;
+  padding: 6px 18px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.industrial-upload-prompt p {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* --- DATA FIELDS & INPUTS --- */
+.field-group {
+  margin-bottom: 25px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 10px;
+  font-weight: 900;
+  color: #555;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.field-group input {
+  width: 100%;
+  background: #000;
+  border: 1px solid #222;
+  color: #fff;
+  padding: 14px 18px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.field-group input:focus {
+  border-color: #e10600;
+  background: #0a0a0a;
+  outline: none;
+  box-shadow: inset 0 0 10px rgba(225, 6, 0, 0.1);
+}
+
+.input-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* --- DIGITAL ATTESTATION (SIGNATURE) --- */
+.industrial-signature-box {
+  background: #000;
+  border: 1px solid #222;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  background: #080808;
+  border: 1px solid #111;
+  overflow: hidden;
+}
+
+.signature-canvas {
+  width: 100%;
+  height: 130px;
+  cursor: crosshair;
+}
+
+.canvas-meta {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 8px;
+  color: #222;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.clear-btn {
+  background: transparent;
+  border: 1px solid #222;
+  color: #444;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 6px 14px;
+  margin-top: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  border-color: #e10600;
+  color: #e10600;
+}
+
+/* --- LEGAL & DISCLOSURE --- */
+.legal-disclaimer {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(225, 6, 0, 0.03);
+  border-left: 3px solid #e10600;
+}
+
+.legal-disclaimer input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #e10600;
+}
+
+.legal-disclaimer label {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+/* --- AUTHORIZATION BUTTON --- */
+.industrial-submit-btn {
+  width: 100%;
+  height: 65px;
+  background: #e10600;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  margin-top: 35px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+}
+
+.industrial-submit-btn:hover {
+  background: #fff;
+  color: #000;
+  letter-spacing: 6px;
+}
+
+.industrial-submit-btn:disabled {
+  background: #222;
+  color: #444;
+  cursor: not-allowed;
+}
+
+.industrial-submit-btn.verifying {
+  background: #ffb400; /* Caution Yellow */
+  color: #000;
+}
+
+.industrial-submit-btn.success {
+  background: #28a745; /* Success Green */
+}
+
+.cart-page { background: #000; color: #fff; min-height: 100vh; padding: 40px 60px; }
+.cart-header h1 { font-size: 36px; font-weight: 900; text-transform: uppercase; margin-bottom: 40px; border-bottom: 2px solid #e10600; padding-bottom: 10px; width: fit-content; }
+
+.cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 40px; }
+
+/* CART ITEM CARDS */
+.cart-item-card { display: flex; background: #080808; border: 1px solid #1a1a1a; padding: 20px; margin-bottom: 15px; align-items: center; }
+.item-image img { width: 100px; height: 100px; object-fit: cover; border: 1px solid #222; }
+.item-info { flex: 1; display: flex; justify-content: space-between; align-items: center; padding-left: 25px; }
+.item-main h3 { font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+.item-desc { font-size: 10px; color: #555; }
+
+.item-controls { display: flex; align-items: center; gap: 40px; }
+.qty-picker { display: flex; align-items: center; background: #000; border: 1px solid #222; }
+.qty-picker button { background: none; border: none; color: #e10600; padding: 8px 12px; cursor: pointer; font-weight: 900; }
+.qty-picker span { font-family: monospace; font-size: 14px; padding: 0 10px; }
+.item-subtotal { font-family: monospace; font-weight: 900; color: #fff; width: 80px; text-align: right; }
+.remove-btn { background: none; border: none; color: #333; font-size: 24px; cursor: pointer; transition: 0.3s; }
+.remove-btn:hover { color: #e10600; }
+
+/* SUMMARY SIDEBAR */
+.cart-summary-sidebar { position: sticky; top: 100px; height: fit-content; }
+.summary-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 13px; color: #888; }
+.coupon-row { margin: 25px 0; display: flex; gap: 10px; }
+.coupon-row input { flex: 1; background: #000; border: 1px solid #222; padding: 10px; color: #fff; font-family: monospace; }
+.coupon-row button { background: #222; color: #fff; border: none; padding: 0 15px; font-size: 10px; font-weight: 800; cursor: pointer; }
+
+.total-row { color: #fff; font-weight: 900; font-size: 18px; margin-top: 20px; }
+.escrow-notice { font-size: 9px; color: #444; margin-top: 20px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+
+/* REUSE MODAL & PAYMENT STYLES FROM PITLANESHOP.CSS */
+/* --- CUSTOMIZATION STUDIO WRAPPER --- */
+.customization-studio {
+  background: #080808;
+  border: 1px solid #1a1a1a;
+  padding: 60px;
+  margin-top: 100px;
+  position: relative;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+}
+
+.studio-header {
+  border-left: 4px solid #e10600;
+  padding-left: 25px;
+  margin-bottom: 50px;
+}
+
+.studio-header h2 {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.studio-header p {
+  color: #666;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+/* --- THE STUDIO GRID --- */
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* --- TELEMETRY UPLOAD BOX --- */
+.industrial-upload-box {
+  background: #050505;
+  border: 1px solid #222;
+  height: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: crosshair;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.industrial-upload-box:hover {
+  border-color: #e10600;
+  background: #0a0a0a;
+}
+
+.live-preview-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(225, 6, 0, 0.2));
+}
+
+.tech-icon {
+  border: 1px solid #e10600;
+  color: #e10600;
+  padding: 6px 15px;
+  font-size: 10px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.industrial-upload-prompt p {
+  font-size: 11px;
+  font-weight: 800;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+/* --- MATERIAL SELECTOR CARDS --- */
+.picker-label {
+  font-size: 10px;
+  font-weight: 900;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.material-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.material-card {
+  background: #0c0c0c;
+  border: 1px solid #222;
+  padding: 25px 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.material-card:hover {
+  background: #111;
+  border-color: #444;
+  transform: translateY(-3px);
+}
+
+.material-card.active {
+  background: #000;
+  border: 1px solid #e10600;
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.material-name {
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #222;
+  border-radius: 50%;
+}
+
+.material-card.active .status-dot {
+  background: #e10600;
+  box-shadow: 0 0 10px #e10600;
+}
+
+.material-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.price-addon {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #e10600;
+  font-weight: 900;
+}
+
+.weight-class {
+  font-size: 8px;
+  color: #444;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* --- FOOTER & ACTION --- */
+.live-price-footer {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-breakdown span {
+  font-size: 9px;
+  color: #555;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.price-breakdown h3 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  margin: 5px 0 0;
+}
+
+.custom-add-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 20px 50px;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.custom-add-btn:hover {
+  background: #e10600;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(225, 6, 0, 0.4);
+}

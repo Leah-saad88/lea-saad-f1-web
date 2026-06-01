@@ -57,8 +57,16 @@ import e from "./e.webp";
 import f from "./f.jpeg";
 import leahandritadesign from "./leahandritadesign.jpg";
 import F11 from "./F11.jfif";
-
-
+import A from "./A.png";
+import C from "./C.webp";
+import B from "./B.png";
+import J from "./J.png";
+import CHAR from "./CHAR.jpg";
+import Car from "./Car.jfif";
+import MO from "./MO.webp";
+import bri from "./bri.webp";
+import miami from "./miami.jfif";
+import saudi from "./saudi.png";
 export const Assets = {
   gifyy,
   Maxverstappen,
@@ -119,4 +127,14 @@ export const Assets = {
   f,
   leahandritadesign,
   F11 ,
+  CHAR,
+  Car,
+  A,
+  B,
+  C,
+  J,
+  MO,
+  bri,
+  miami, 
+  saudi,
 };

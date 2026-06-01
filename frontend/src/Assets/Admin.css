@@ -1,0 +1,122 @@
+.admin-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.admin-page h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+section h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Merch & Tickets */
+.merch-list,
+.ticket-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.merch-item,
+.ticket-item {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.merch-item img,
+.ticket-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.merch-item button,
+.ticket-item button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #ff4136;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.merch-item button:hover,
+.ticket-item button:hover {
+  background-color: #e03131;
+}
+
+/* Grid for Cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card styling */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card h4 {
+  margin: 0;
+  color: #222;
+}
+
+.card label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.card input {
+  padding: 6px 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* Section titles */
+section button {
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  background-color: #0077cc;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+section button:hover {
+  background-color: #005fa3;
+}
+
+/* Optional: scroll horizontally if too many cards */
+.cards-container {
+  overflow-x: auto;
+}
